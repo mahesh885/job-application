@@ -64,7 +64,7 @@ public class UserController {
     @PostMapping("/upload")
     public String handleFileUpload(@RequestParam("file") MultipartFile file, @ModelAttribute("resume") Resume resume) {
         // Save the file to the file system
-        String fileLocation = saveFile(file); // Implement the saveFile method
+        String fileLocation = saveFile(file);
         resume.setFileName(file.getOriginalFilename());
         resume.setFileType(file.getContentType());
         resume.setFileLocation(fileLocation);
@@ -99,8 +99,8 @@ public class UserController {
             // Return the file location
             return uploadDir + originalFileName;
         } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception as per your application's error handling strategy
-            return null; // Or throw a custom exception, log the error, etc.
+            e.printStackTrace(); 
+            return null; 
         }
     }
 }
